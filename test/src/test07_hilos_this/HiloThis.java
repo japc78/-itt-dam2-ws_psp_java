@@ -12,9 +12,11 @@ public class HiloThis implements Runnable{
 	// STUDY Como crear un hilo con this desde el constructor.
 	public HiloThis(String valorImprimir, String nombreHilo) {
 		this.valorImprimir = valorImprimir;
-		new Thread(this, nombreHilo).start(); // -> Como HiloThis implementa Runnable, podemos crear en el constructo el hilo haciendo referencia al objeto con this y pasandole el nombre que tendrá el hilo.
 
-		// Tambien seria igual a esto.
+		// Como HiloThis implementa Runnable, podemos crear en el constructo el hilo haciendo referencia al objeto con this y pasandole el nombre que tendrá el hilo.
+		new Thread(this, nombreHilo).start();
+
+		// Otra forma menos optimizada.
 		/* 		Thread t1 = new Thread(this); // Se instancia el hilo
 				t1.setName(nombreHilo); // Le pasamos el nombre del hilo
 				t1.start(); // lo iniciamos
