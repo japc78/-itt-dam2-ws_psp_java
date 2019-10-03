@@ -3,38 +3,26 @@ package itt;
 import java.time.LocalDateTime;
 
 public class Examinador implements Runnable {
-	private Thread hilo;
-	BufferExamenes buffer;
-
-	public Thread getHilo() {
-		return hilo;
-	}
+	private BufferExamenes buffer;
 
 	public Examinador(String alumno, BufferExamenes generador) {
-		// Construye el hilo. El nombre será el nombre del alumno.
-		hilo = new Thread(this, alumno);
-
-		// Establece el valor de la propiedad buffer
+		// Se Establece el valor de la propiedad buffer que se pasa como argumento en el constuctor.
 		this.buffer = generador;
 
-		// Inicia el hilo.
-		hilo.start();
+		// Se construye el hilo dentro del constructor
+		new Thread(this, alumno).start();
 	}
 
 	@Override
 	public synchronized void run() {
-		String codigoExamen = this.buffer.consumirExamen();
+		String codigoExamen = buffer.consumirExamen();
 		if (codigoExamen != null) {
-			// Simula aquí un examen de 10 preguntas
-			// cuyas respuestas se seleccionarán al azar
-			// entre A, B, C, D o – (sin contestar).
-
 			// Creo un array de String con las respuestas para mostrarlas depues con Random aleatoriamente.
 			String[] respuesta = { "A", "B", "C", "D", "-" };
 
-			//System.out.println("Producido el examen " + hilo);
+			// Con el for creo las 10 preguntas del examen del alumno y su respueta con Math.Randon que da un valor aleatorio del array de respuesta anteriormente instanciando.
 			for (int i = 0; i < 10; i++) {
-				System.out.println(codigoExamen + ";" + hilo.getName() + ";" + "Pregunta " + (i+1) + ";" + respuesta[(int) (Math.random() * 5)] + " - " + LocalDateTime.now());
+				System.out.println(codigoExamen + ";" + Thread.currentThread().getName() + ";" + "Pregunta " + (i+1) + ";" + respuesta[(int) (Math.random() * 5)] + " - " + LocalDateTime.now());
 			}
 		} else {
 			System.out.println("Agotado tiempo de espera y " + "no hay más exámenes");
