@@ -5,7 +5,7 @@ package test07_hilos_this;
  */
 public class HiloThis implements Runnable{
 	private String valorImprimir;
-	private String nombreHilo;
+	// private String nombreHilo;
 
 	// Constructor que le pasamos dos parametros y crea un nuevo hilo del objeto.
 
