@@ -60,6 +60,7 @@ public class BufferExamenes {
 			}
 		}
 		String examen = (String) colaExamenes.remove();
+		notify();
 		return examen;
 	}
 }
