@@ -22,11 +22,11 @@ package itt;
 public class Principal {
 	public static void main(String[] args) throws InterruptedException {
 		BufferExamenes generador = new BufferExamenes();
-		new ProductorExamenes(generador);
-		new Examinador("Rosa", generador);
-		new ProductorExamenes(generador);
-		new Examinador("Miguel", generador);
-		new ProductorExamenes(generador);
-		new Examinador("Carlos", generador);
+
+		// Se add un for para iterar la creacion de examen y el examinador cuyo valor es pasado por argumento en el main.
+		for (int i = 0; i < args.length; i++) {
+			new ProductorExamenes(generador);
+			new Examinador(args[i], generador);
+		}
 	}
 }

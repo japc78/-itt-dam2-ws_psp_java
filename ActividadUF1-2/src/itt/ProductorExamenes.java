@@ -29,6 +29,6 @@ public class ProductorExamenes implements Runnable {
 
 		// Muestra un mensaje en consola informando sobre el
 		// código del examen que se acaba de producir.
-		System.out.println("Producido el examen " + codigo + " - " + LocalDateTime.now());
+		System.out.println("Producido el examen " + codigo + " - ");
 	}
 }

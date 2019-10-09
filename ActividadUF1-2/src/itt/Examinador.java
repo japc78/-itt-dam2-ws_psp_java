@@ -22,7 +22,7 @@ public class Examinador implements Runnable {
 
 			// Con el for creo las 10 preguntas del examen del alumno y su respueta con Math.Randon que da un valor aleatorio del array de respuesta anteriormente instanciando.
 			for (int i = 0; i < 10; i++) {
-				System.out.println(codigoExamen + ";" + Thread.currentThread().getName() + ";" + "Pregunta " + (i+1) + ";" + respuesta[(int) (Math.random() * 5)] + " - " + LocalDateTime.now());
+				System.out.println(codigoExamen + ";" + Thread.currentThread().getName() + ";" + "Pregunta " + (i+1) + ";" + respuesta[(int) (Math.random() * 5)]);
 			}
 		} else {
 			System.out.println("Agotado tiempo de espera y " + "no hay más exámenes");
