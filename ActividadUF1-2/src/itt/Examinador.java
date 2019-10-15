@@ -1,7 +1,5 @@
 package itt;
 
-import java.time.LocalDateTime;
-
 public class Examinador implements Runnable {
 	private BufferExamenes buffer;
 
