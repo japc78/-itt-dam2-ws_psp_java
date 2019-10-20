@@ -1,4 +1,4 @@
-# Actividad 1. Tarea individual. Servidor socket para consulta de inventario frutería.
+# Actividad UF2-1. Tarea individual. Servidor socket para consulta de inventario frutería.
 Se presenta la actividad de dos formas, organizadas por paquetes.
 
 - **itt.metodo_1**, se realiza en base a la forma indicada en los manuales, con ***InetSocketAddres, InputStream y OutputStream,*** se intercambia los datos en forma de ***bytes***.  

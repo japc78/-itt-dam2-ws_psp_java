@@ -4,9 +4,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.Socket;
-import java.util.TreeMap;
-
-import itt_comun.Producto;
 
 public class HiloEscuchador implements Runnable {
 	// Para identificar a cada cliente
@@ -15,16 +12,12 @@ public class HiloEscuchador implements Runnable {
 	// Para la conexion con el cliente
 	private Socket conexionACliente;
 
-	// Para acceder a la lista de productos.
-	TreeMap <String, Producto>  productos;
-
 	// Constructor del hilo, que se le pasa por parametros la conexcion y un Mapa del tipo TreeMap con los datos de los procutos.
 	// Asignara a cada hilo un nombre Cliente+NumeroCliente.
-	public HiloEscuchador(Socket cliente, TreeMap<String, Producto> productos) {
+	public HiloEscuchador(Socket cliente) {
 		numCliente++;
 		new Thread(this, "Cliente" + numCliente).start();
 		this.conexionACliente = cliente;
-		this.productos = productos;
 	}
 
 	@Override
@@ -51,12 +44,12 @@ public class HiloEscuchador implements Runnable {
 
 				// Si el cliente introduce un codigo que se encuentre en el TreeMap de produtos.
 				// TreeMap.containstKey(key) -> te devuleve true si la key se encuentra en el treemap.
-				} else if (productos.containsKey(texto)) {
+				} else if (Servidor.getProductos().containsKey(texto)) {
 					System.out.println(Thread.currentThread().getName() + " dice: " + texto);
-					System.out.println("Se le envia la informacion " + productos.get(texto).toString());
+					System.out.println("Se le envia la informacion " + Servidor.getProductos().get(texto).toString());
 
 					// Se envia al cliente el valor de la key que contiene la informacion del producto.
-					salida.write((productos.get(texto).toString()).getBytes());
+					salida.write((Servidor.getProductos().get(texto).toString()).getBytes());
 				// Si el cliente introduce un codigo que no se encuentra en productos. Se le informa y se le solicita que lo introuzca de nuevo.
 				} else {
 					System.out.println("El codigo: " + texto + " introducido por el " + Thread.currentThread().getName() + " no exite.");
