@@ -25,14 +25,14 @@ public class HiloEscuchador implements Runnable {
 			while (!texto.trim().equals("FIN")) {
 				byte[] mensaje = new byte[100];
 				entrada.read(mensaje);
-				texto = new String(mensaje);
-				if (texto.trim().equals("FIN")) {
+				texto = new String(mensaje).trim();
+				if (texto.equals("FIN")) {
 					salida.write("Hasta pronto, gracias por establecer conexión".getBytes());
 					System.out.println(hilo.getName() + " ha cerrado la comunicación");
 				} else {
 					System.out.println(hilo.getName() + " dice: " + texto);
 					salida.write(("Tu mensaje tiene " +
-						texto.trim().length() + " caracteres").getBytes());
+						texto.length() + " caracteres").getBytes());
 				}
 			}
 			entrada.close();
