@@ -48,6 +48,8 @@ public class HiloConexcionCliente implements Runnable {
 					System.out.println(Thread.currentThread().getName() + " ha cerrado la comunicación");
 				} else {
 					System.out.println(Thread.currentThread().getName() + " dice: " + texto);
+					// Ver la ip del cliente desde el servidor.
+					System.out.println(conexionACliente.getRemoteSocketAddress().toString());
 					salida.println(("Tu mensaje tiene " + texto.length() + " caracteres"));
 				}
 			}
