@@ -11,20 +11,27 @@ import common.AppInterface;
  * AppClient
  */
 public class AppClient {
-	private static String ipServer = "192.168.42.12";
+	// STUDY RMI -> Cliente
+
+	// Se le asigna la ip y el puerto del servidor.
+	private static String ipServer = "192.168.254.1";
 	private static int port = 2200;
 	public static void main(String[] args) {
 		Registry registry;
 		Scanner lector = new Scanner(System.in);
 			try {
+				// De esta maner se conecta con el servido y se obtiene el acceso al registro.
 				registry = LocateRegistry.getRegistry(ipServer, port);
 				System.out.println("Hemos obtenido el registro");
+
+				// Se optiene el Stub a traves del identificador dado por el servidor -> appConstelaciones.
 				AppInterface constelaciones = (AppInterface) registry.lookup("appConstelaciones");
 				System.out.println("Hemos obtenido el objeto remoto");
 
 				String find;
 				String option;
 
+				// Logica para el cliente.
 				do {
 					menu();
 					option = lector.nextLine().toUpperCase();

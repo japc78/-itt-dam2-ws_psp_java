@@ -7,7 +7,9 @@ import java.io.Serializable;
  *
  */
 public class Constelacion implements Serializable {
+	// Se serializa para poder pasar el objeto cuadno lo solicite el cliente. En este caso, como el cliente y el servidor estan en el mismo proyecto se utiliza la misma clase. Pero en los otros casos, la ambas clases creadas en sus proyectos correspondientes deben de tener el mismo identificador.
 	private static final long serialVersionUID = 5334247614476509887L;
+
 	private String name, description;
 
 	/**

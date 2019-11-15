@@ -6,6 +6,8 @@ import java.rmi.RemoteException;
 /**
  * ConstalacionInterface
  */
+
+//  La interface es comun para ambas aplicaciones.
 public interface AppInterface extends Remote {
 	public String listarConstelaciones() throws RemoteException;
 	public String buscarPorNombre(String name) throws RemoteException;

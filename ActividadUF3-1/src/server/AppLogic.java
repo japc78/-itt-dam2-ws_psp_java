@@ -15,7 +15,6 @@ public class AppLogic extends UnicastRemoteObject implements AppInterface {
 	private ArrayList<Constelacion> constelaciones;
 
 	protected AppLogic() throws RemoteException {
-		super();
 		constelaciones = new ArrayList<Constelacion>();
 		constelaciones.add(new Constelacion("Osa Mayor", "Se desplaza en círculos alrededor del polo norte."));
 		constelaciones.add(new Constelacion("Osa Menor", "Su estrella más conocida es la polar que se encuentra en la prolongación del eje de la tierra."));
@@ -35,7 +34,7 @@ public class AppLogic extends UnicastRemoteObject implements AppInterface {
 		String r = "";
 		r += "-- Listado de constelaciones -- \n" ;
 		for (int i = 0; i < constelaciones.size(); i++) {
-			r+= "(" + (i) + ") " + constelaciones.get(i).getName()  + "\n";
+			r+= "(" + (i+1) + ") " + constelaciones.get(i).getName()  + "\n";
 		}
 		r+= "------------------------------- \n";
 		System.out.println();
@@ -55,6 +54,6 @@ public class AppLogic extends UnicastRemoteObject implements AppInterface {
 
 	@Override
 	public Constelacion buscarPorId(int i) throws RemoteException {
-		return ((i > 0) && (i < constelaciones.size()))?constelaciones.get(i-1):null;
+		return ((i > 0) && (i <= constelaciones.size()))?constelaciones.get(i-1):null;
 	}
 }

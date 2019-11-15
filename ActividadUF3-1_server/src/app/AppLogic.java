@@ -34,7 +34,7 @@ public class AppLogic extends UnicastRemoteObject implements AppInterface {
 		String r = "";
 		r += "-- Listado de constelaciones -- \n" ;
 		for (int i = 0; i < constelaciones.size(); i++) {
-			r+= "(" + (i) + ") " + constelaciones.get(i).getName()  + "\n";
+			r+= "(" + (i+1) + ") " + constelaciones.get(i).getName()  + "\n";
 		}
 		r+= "------------------------------- \n";
 		System.out.println();
@@ -54,6 +54,6 @@ public class AppLogic extends UnicastRemoteObject implements AppInterface {
 
 	@Override
 	public Constelacion buscarPorId(int i) throws RemoteException {
-		return ((i > 0) && (i < constelaciones.size()))?constelaciones.get(i-1):null;
+		return ((i > 0) && (i <= constelaciones.size()))?constelaciones.get(i-1):null;
 	}
 }
