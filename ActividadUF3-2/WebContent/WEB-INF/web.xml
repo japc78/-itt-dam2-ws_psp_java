@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
+	<display-name>ActividadUF3-2</display-name>
+
+	<!-- Declaracion del Servlet -->
+	<servlet>
+		<!-- STUDY Rest Jersey -> <servlet-name> establece un nombre lógico para hacer referencia al ServletContainer. -->
+		<servlet-name>JerseyRESTService</servlet-name>
+		<servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+
+		<!-- STUDY Rest Jersey -> La entrada <init-param> se especificando el paquete Java donde se encuentran las clases que actúan como controladores, o servlet secundarios. -->
+		<init-param>
+			<param-name>jersey.config.server.provider.packages</param-name>
+
+			<!-- STUDY Rest Jersey -> Paquete donde se buscaran las clases, seran escaneados por el ServlettConatiner y Jersey se encargará de gestionarlos -->
+			<param-value>itt.webservice</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>JerseyRESTService</servlet-name>
+
+		<!-- STUDY Rest Jersey -> Aqui se mapean las urls donde se realizan las peticiones  -->
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+</web-app>
