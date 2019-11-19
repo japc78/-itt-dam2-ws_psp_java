@@ -6,15 +6,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.UnsupportedEncodingException;
 import java.security.GeneralSecurityException;
-import java.security.InvalidKeyException;
 import java.util.Base64;
 import java.util.Scanner;
 
-import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.SecretKey;
 
@@ -220,8 +216,8 @@ public class Principal {
 	/**
 	 * Método para cifrar y descifrar cadenas de texto.
 	 *
-	 * @param s Del tipo String.
-	 * @param v Del tipo integer. 1 -> Cipher.ENCRYPT_MODE, 2 -> Cipher.DECRYPT_MODE
+	 * @param s Del tipo String. El string a codificar.
+	 * @param v Del tipo integer. El valor del Cypher: 1 -> Cipher.ENCRYPT_MODE, 2 -> Cipher.DECRYPT_MODE
 	 *          2.
 	 * @return Retorna un String.
 	 */
