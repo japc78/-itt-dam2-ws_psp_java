@@ -17,7 +17,7 @@ import javax.crypto.SecretKey;
 public class Principal {
 	static Scanner lector;
 
-	// Atributos necesarios para el cifrado/descifrado.
+	// Atributos de la clase necesarios para el cifrado/descifrado.
 	private static SecretKey key;
 	private static Cipher cryptoTxt;
 
@@ -217,8 +217,8 @@ public class Principal {
 	 * Método para cifrar y descifrar cadenas de texto.
 	 *
 	 * @param s Del tipo String. El string a codificar.
-	 * @param v Del tipo integer. El valor del Cypher: 1 -> Cipher.ENCRYPT_MODE, 2 -> Cipher.DECRYPT_MODE
-	 *          2.
+	 * @param v Del tipo integer. El valor del Cypher: 1 -> Cipher.ENCRYPT_MODE, 2
+	 *          -> Cipher.DECRYPT_MODE 2.
 	 * @return Retorna un String.
 	 */
 	public static String crypto(String s, int v) {

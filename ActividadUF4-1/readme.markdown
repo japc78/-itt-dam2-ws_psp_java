@@ -1,9 +1,7 @@
 # Actividad UF4-1. Tarea individual. Agenda segura
-Se presenta la actividad.
-
 Las clases realizadas se encuentran comentadas paso por paso. Algunos comentarios contienen la etiqueta `STUDY`, la cual utilizo junto con la extensión **To do Tree** de VS Code, para marcar donde debo repasar y estudiar, y asi acceder de una forma clara y directa en una lista de acciones que crea la extensión.
 
-La tecnología utilizada `Java` con las clases `Sockets`,  `ServerSocket`, `InetAddress`, `BufferedReader`, `InputStreamReader`, `PrintStream`,`OutputStream`, `InetSocketAddress`, `Scanner`.
+La tecnología utilizada `Java` con las clases `crypto`,  `KeyGenerator`, `SecretKey`, `Cipher`, `GeneralSecurityException`, `Base64`,`FileInputStream`, `FileOutputStream`, `Scanner`.
 
 Como herramienta IDE/Editor **Vs Code**, con las siguientes extensiones:
 - [Java Extension Pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack).
