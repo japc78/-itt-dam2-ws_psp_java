@@ -217,29 +217,6 @@ public class Principal {
 		return key;
 	}
 
-	public static String encode(String s) {
-		try {
-			cryptoTxt.init(Cipher.ENCRYPT_MODE, key);
-			s = Base64.getEncoder().encodeToString(cryptoTxt.doFinal(s.getBytes()));
-		} catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
-			e.printStackTrace();
-		}
-		return s;
-	}
-
-	public static String decode(String s) {
-		try {
-			cryptoTxt.init(Cipher.DECRYPT_MODE, key);
-			// System.out.println("Descrifrando...");
-			// System.out.println("Cifrado: " + s);
-			s = new String(cryptoTxt.doFinal(Base64.getDecoder().decode(s.getBytes())));
-			// System.out.println("Normal: " + s);
-		} catch (InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
-			e.printStackTrace();
-		}
-		return s;
-	}
-
 	/**
 	 * Método para cifrar y descifrar cadenas de texto.
 	 *
@@ -251,9 +228,9 @@ public class Principal {
 	public static String crypto(String s, int v) {
 		try {
 			cryptoTxt.init(v, key);
-			s = (v == 1) ? Base64.getEncoder().encodeToString(cryptoTxt.doFinal(s.getBytes("UTF-8")))
-					: new String(cryptoTxt.doFinal(Base64.getDecoder().decode(s.getBytes())), "UTF-8");
-		} catch (GeneralSecurityException | UnsupportedEncodingException e) {
+			s = (v == 1) ? Base64.getEncoder().encodeToString(cryptoTxt.doFinal(s.getBytes()))
+					: new String(cryptoTxt.doFinal(Base64.getDecoder().decode(s.getBytes())));
+		} catch (GeneralSecurityException e) {
 			System.out.println("Error..." + e.getMessage());
 			e.printStackTrace();
 		}
