@@ -17,7 +17,9 @@ Acompaño la actividad con este documento *Markdonw* con la webgrafía utilizada
 - [javax.crypto.BadPaddingException:Given final block not properly padded](https://stackoverflow.com/questions/10427205/javax-crypto-badpaddingexceptiongiven-final-block-not-properly-padded)
 - [Given final block not properly padded](https://stackoverflow.com/questions/8049872/given-final-block-not-properly-padded)
 - [Java AES Encryption Decryption Example](https://howtodoinjava.com/security/java-aes-encryption-example/)
+- [Class Base64 - JavaDoc](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.html)
 - [Which Java library provides base64 encoding/decoding?](https://stackoverflow.com/questions/14413169/which-java-library-provides-base64-encoding-decoding)
+- [base64 decoding to UTF-8, one character not displaying correctly](https://stackoverflow.com/questions/33328694/base64-decoding-to-utf-8-one-character-not-displaying-correctly)
  
 
 Juan Antonio Pavón Carmona.  
