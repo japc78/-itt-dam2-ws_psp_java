@@ -38,17 +38,17 @@ public class Principal {
 		// -----------------------------------------------------------------------
 
 		try {
-			// STUDY KeyGenerator.getInstance() -> Se obtiene el KeyGenerator a traves del
-			// método stático getInstance() y pasándole como argumento el tipo de Algoritmo
-			// de encryptación a utilizar.
-			KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
 
 			// STUDY keyGenerator.generateKey() -> Crea la clave de encryptación.
 			// Sino existe la genera y la guarda en un fichero, si exite lee la clave.
 			if (keyfile.exists()) {
 				key = readkey();
-				System.out.println("pasa");
 			} else {
+				// STUDY KeyGenerator.getInstance() -> Se obtiene el KeyGenerator a traves del
+				// método stático getInstance() y pasándole como argumento el tipo de Algoritmo
+				// de encryptación a utilizar.
+				KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
+
 				key = keyGenerator.generateKey();
 				makeSecrectKey(key);
 			}
@@ -178,6 +178,11 @@ public class Principal {
 		return agenda;
 	}
 
+	// -----------------------------------------------------------------------
+	// Métodos implementados para la lógica de cifrad/descifrado de la Agenda.
+	// -----------------------------------------------------------------------
+
+
 	/**
 	 * Método que guarda la Objeto de tipo SecretKey en un fichero del tipo .key
 	 *
@@ -191,10 +196,6 @@ public class Principal {
 		buffer.close();
 		file.close();
 	}
-
-	// -----------------------------------------------------------------------
-	// Métodos implementados para la lógica de cifrad/descifrado de la Agenda.
-	// -----------------------------------------------------------------------
 
 	/**
 	 * Método que Lee la clave guardada en un archivo keyfile.key
